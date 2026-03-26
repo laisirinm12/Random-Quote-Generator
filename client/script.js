@@ -23,7 +23,7 @@ async function getQuote(){
     quoteText.textContent = "⏳ Loading quote...";
     quoteAuthor.textContent = "";
 
-    const API_URL = "https://random-quote-generator-1lme.onrender.com";
+    const API_URL = "https://random-quote-generator-1mle.onrender.com";
 
     const response = await fetch(`${API_URL}/quote`);
 

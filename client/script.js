@@ -1,5 +1,6 @@
 let currentQuote = "";
 
+
 /* PRELOAD BACKGROUND IMAGES (performance improvement) */
 
 const images = ["rose.jpg","galaxy.jpg","sunrise.jpg","wisdom.jpg"];
@@ -16,7 +17,9 @@ async function getQuote(){
 
 try{
 
-const response = await fetch("http://localhost:3000/quote");
+const API_URL = "https://random-quote-generator-1lme.onrender.com";
+
+const response = await fetch(`${API_URL}/quote`);
 
 if(!response.ok){
 throw new Error("API error");

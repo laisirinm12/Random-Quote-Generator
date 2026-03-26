@@ -4,9 +4,11 @@ const quotes = require("./quotes");
 
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 
 let lastIndex = -1;
 

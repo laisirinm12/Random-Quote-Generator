@@ -1,5 +1,12 @@
 # Random Quote Generator
 
+🌍 **Live Demo:**  
+https://randomquotegenerator05.netlify.app/
+
+⚙️ **Backend API:**  
+https://random-quote-generator-1mle.onrender.com/quote
+---
+
 This is a simple **Random Quote Generator** built using **HTML, CSS, JavaScript and a Node.js API**.  
 The application displays random quotes along with the author's name and dynamically changes the **theme and background** based on the quote category.
 

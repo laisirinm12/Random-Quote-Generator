@@ -71,7 +71,9 @@ document.getElementById("newQuote").addEventListener("click", getQuote);
 
 /* LOAD QUOTE ON PAGE START */
 
-getQuote();
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(getQuote, 500);
+});
 
 
 /* COPY FEATURE */

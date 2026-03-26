@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: "*"
+  origin: "https://randomquotegenerator05.netlify.app"
 }));
 
 let lastIndex = -1;

@@ -15,58 +15,52 @@ img.src = src;
 
 async function getQuote(){
 
-try{
+  const quoteText = document.getElementById("quoteText");
+  const quoteAuthor = document.getElementById("quoteAuthor");
 
-const API_URL = "https://random-quote-generator-1lme.onrender.com";
+  try{
 
-const response = await fetch(`${API_URL}/quote`);
+    quoteText.textContent = "⏳ Loading quote...";
+    quoteAuthor.textContent = "";
 
-if(!response.ok){
-throw new Error("API error");
-}
+    const API_URL = "https://random-quote-generator-1lme.onrender.com";
 
-const data = await response.json();
+    const response = await fetch(`${API_URL}/quote`);
 
-const quoteText = document.getElementById("quoteText");
-const quoteAuthor = document.getElementById("quoteAuthor");
+    const data = await response.json();
 
-quoteText.textContent = data.text;
-quoteAuthor.textContent = "- " + data.author;
+    quoteText.textContent = data.text;
+    quoteAuthor.textContent = "- " + data.author;
 
-currentQuote = data.text + " - " + data.author;
+    currentQuote = data.text + " - " + data.author;
 
+    /* THEME SWITCH */
 
-/* THEME SWITCH */
+    switch(data.category){
+      case "love":
+        document.body.style.backgroundImage = "url('rose.jpg')";
+        break;
 
-switch(data.category){
+      case "coding":
+        document.body.style.backgroundImage = "url('galaxy.jpg')";
+        break;
 
-case "love":
-document.body.style.backgroundImage = "url('rose.jpg')";
-break;
+      case "motivation":
+        document.body.style.backgroundImage = "url('sunrise.jpg')";
+        break;
 
-case "coding":
-document.body.style.backgroundImage = "url('galaxy.jpg')";
-break;
+      case "wisdom":
+        document.body.style.backgroundImage = "url('wisdom.jpg')";
+        break;
+    }
 
-case "motivation":
-document.body.style.backgroundImage = "url('sunrise.jpg')";
-break;
+  } catch(error){
 
-case "wisdom":
-document.body.style.backgroundImage = "url('wisdom.jpg')";
-break;
+    quoteText.textContent =
+    "⚠️ Server is waking up... click again in a few seconds";
 
-}
-
-}catch(error){
-
-document.getElementById("quoteText").textContent =
-"Failed to load quote. Please try again.";
-
-document.getElementById("quoteAuthor").textContent = "";
-
-}
-
+    quoteAuthor.textContent = "";
+  }
 }
 
 

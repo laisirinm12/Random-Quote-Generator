@@ -131,8 +131,9 @@ buttons.style.display = "flex";
 
 document.addEventListener("keydown",(e)=>{
 
-if(e.key === "Enter"){
-getQuote();
+if(e.key === "Enter" && e.target.tagName !== "BUTTON"){
+  e.preventDefault();
+  getQuote();
 }
 
 if(e.key.toLowerCase() === "c"){
